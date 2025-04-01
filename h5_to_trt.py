@@ -10,14 +10,11 @@ import onnx
 import onnx.backend as backend
 import logging
 
-
-
 TRT_LOGGER = trt.Logger(trt.Logger.VERBOSE)
 logging.basicConfig(level=logging.DEBUG,
                     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
                     datefmt="%Y-%m-%d %H:%M:%S")
 logger = logging.getLogger(__name__)
-
 
 def freeze_and_optimize_session(session, keep_var_names=None, input_names=None, output_names=None, clear_devices=True):
     graph = session.graph
@@ -160,13 +157,13 @@ def onnx_to_trt(folder, model_name, fp = 16):
         builder.max_batch_size = NUM_IMAGES_PER_BATCH
         builder.max_workspace_size = 1 << 30
         if fp == 16:
-        	builder.fp16_mode = True
+            builder.fp16_mode = True
         builder.strict_type_constraints = True
 
         config.max_workspace_size = 1 << 30
         if fp == 16:
-        	config.flags |= 1 << int(trt.BuilderFlag.FP16)
-        	
+            config.flags |= 1 << int(trt.BuilderFlag.FP16)
+            
         config.flags |= 1 << int(trt.BuilderFlag.STRICT_TYPES)
 
         with open("./{}/{}.onnx".format(folder, model_name), 'rb') as model:
