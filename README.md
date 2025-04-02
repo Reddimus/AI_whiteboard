@@ -59,13 +59,16 @@ Check `config.py` file and set up needed parameters.
 Run from a project root directory:
 
 **Jetson Devices**
-```python 
+
+```python
   python3 ai_whiteboard.py --rpc --trt 
 ```
+
 - rpc : If you want to use a Raspberry Pi Camera. Default: False
 - trt : If you want to use TensorRT engines. Default: False
 
 **Laptop**
+
 ```python
   python3 ai_whiteboard.py 
 ```
@@ -135,7 +138,6 @@ In order to determine the correctness of the detection, we use the value of [IOU
 | Precision   | 84.80 % | 99.45 % | 99.45 % | 99.45 % |
 | Recall      | 50.78 % | 77.24 % | 77.24 % | 77.10 % |
 
-
 ## Solution performance (Hand detector + Fingertips detector)
 
 Captured image shape : 320x240
@@ -145,9 +147,8 @@ Jetson Xavier NX: power mode ID 2: 15W 6 cores
 |:---------------:|:---------------:|:---------------:|:---------------:|
 | Average FPS | 12 | 33 | 60 |
 
-
-
 ## References
+
 1. Unified Gesture and Fingertip Detection : https://github.com/MahmudulAlam/Unified-Gesture-and-Fingertip-Detection
 2. TensorRT guide: https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/index.html#python_topics
 3. YOLO9000: Better, Faster, Stronger : https://arxiv.org/abs/1612.08242
